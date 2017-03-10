@@ -1,25 +1,22 @@
 import React from 'react'
 import Prompt from '../components/Prompt'
 
-export default React.createClass({
-
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
-
+export default class PromptContainer extends React.Component {
   // Sets the intial state of the component
-  getInitialState(){
-    return {
-      username: ''
+  constructor(){
+    super();
+    this.state = {
+      username: ""
     }
-  },
+  }
   // Runs whenever the user types something into the
   // text field. (Constantly updated)
   handleUpdateUser(e){
+
     this.setState({
-      username : e.target.value
+      username: e.target.value
     })
-  },
+  }
   // Runs whenever the user clicks the submit button
   handleSubmitUser(e){
     e.preventDefault();
@@ -48,15 +45,20 @@ export default React.createClass({
         pathname: '/playerTwo/' + this.state.username
       })
     }
-  },
+  }
+
   render(){
     return(
       <Prompt
-        onSubmitUser= {this.handleSubmitUser}
-        onUpdateUser= {this.handleUpdateUser}
+        onSubmitUser= {this.handleSubmitUser.bind(this)}
+        onUpdateUser= {this.handleUpdateUser.bind(this)}
         header= {this.props.route.header}
-        username={this.props.username}
+        username={this.state.username}
       />
     )
   }
-})
+}
+
+PromptContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}

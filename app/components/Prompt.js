@@ -1,13 +1,11 @@
 import React from 'react'
 import {PropTypes} from 'react'
 
-export default React.createClass({
-  propTypes:{
-    header: PropTypes.string.isRequired,
-    onUpdateUser: PropTypes.func.isRequired,
-    onSubmitUser: PropTypes.func.isRequired,
-    username: PropTypes.string.isRequired
-  },
+export default class Prompt extends React.Component {
+
+  constructor(){
+    super();
+  }
 
   render(){
     return(
@@ -40,4 +38,11 @@ export default React.createClass({
       </div>
     )
   }
-});
+}
+
+Prompt.propTypes = {
+  header: PropTypes.string.isRequired,
+  onUpdateUser: PropTypes.func.isRequired,
+  onSubmitUser: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired
+}
