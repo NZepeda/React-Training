@@ -1,11 +1,12 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router'
+import UserDetails from './UserDetails'
+import UserDetailsWrapper from './UserDetailsWrapper'
 
 export default class ConfirmBattle extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(props);
   }
 
   render(){
@@ -13,13 +14,12 @@ export default class ConfirmBattle extends React.Component {
     : <div className="jumbotron col-sm-12 text-center transparentBackground">
         <h1> Confirm Players </h1>
         <div className="col-sm-8 col-sm-offset-2">
-          <div className="col-sm-6">
-            <p className="lead"> Player 1 </p>
-              {puke(this.props.playersInfo[0])}
-          </div>
+          <UserDetailsWrapper>
+            <UserDetails info = {this.props.playerInfo[0]} score= {17} />
+          </UserDetailsWrapper>
           <div className="col-sm-6">
             <p className="lead"> PLAYER 2 </p>
-              {puke(this.props.playersInfo[1])}
+              <UserDetails info= {this.props.playerInfo[1]}  score={5}/>
           </div>
       </div>
       <div className="col-sm-8 col-sm-offset-2">

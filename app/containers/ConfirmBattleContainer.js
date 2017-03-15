@@ -23,9 +23,9 @@ export default class ConfirmBattleContainer extends React.Component{
     }.bind(this));
   }
 
-  handleInitiateBattle(){
+  handleInitiateBattle() {
     this.context.router.push({
-      pathname: '/results',
+      pathname: '/battle',
       state: {
         playerInfo: this.state.playerInfo
       }
@@ -35,7 +35,7 @@ export default class ConfirmBattleContainer extends React.Component{
   render(){
     return(<ConfirmBattle
             isLoading = { this.state.isLoading }
-            onInitiateBattle = {this.handleInitiateBattle }
+            onInitiateBattle = {this.handleInitiateBattle() }
             playersInfo = { this.state.playerInfo  }/>)
   }
 
