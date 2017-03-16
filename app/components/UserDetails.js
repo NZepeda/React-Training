@@ -1,25 +1,26 @@
 import React, {PropTypes} from 'react'
 
-export default class UserDetails extends React.Component{
+export default class propsDetails extends React.Component{
 
   constructor(props){
     super(props);
-    var user = this.props
+    var props = this.props
+    console.log("In props details!")
   }
 
   render(){
     return(
       <div>
-        {!!this.props.score && <li className="list-group-item"><h3>User: {this.props.score}</h3></li>}
-        <li className="list-group-item"> <img src={this.user.info.avatar_url} className="img-rounded img-responsive"/></li>
-        {this.user.info.name && <li className="list-group-item">Name: {this.user.info.name}</li>}
-        <li className="list-group-item"> Username: {this.user.info.login} </li>
-        {this.user.info.location && <li className="list-group-item">Location: {this.user.info.location}</li>}
-        {this.user.info.company && <li className="list-group-item">Company: {this.user.info.company}</li>}
-        <li className="list-group-item"> Followers: {this.user.info.followers} </li>
-        <li className="list-group-item"> Following: {this.user.info.following} </li>
-        <li className="list-group-item"> Public Repos: {this.user.info.public_repos} </li>
-        {this.user.info.blog && <li className="list-group-item">Blog: <a href={this.user.info.blog}>{this.user.info.blog}</a> </li>}
+        {!!this.props.score && <li className="list-group-item"><h3>Score: {this.props.score}</h3></li>}
+        <li className="list-group-item"> <img src={this.props.info.avatar_url} className="img-rounded img-responsive"/></li>
+        {this.props.info.name && <li className="list-group-item">Name: {this.props.info.name}</li>}
+        <li className="list-group-item"> Username: {this.props.info.login} </li>
+        {this.props.info.location && <li className="list-group-item">Location: {this.props.info.location}</li>}
+        {this.props.info.company && <li className="list-group-item">Company: {this.props.info.company}</li>}
+        <li className="list-group-item"> Followers: {this.props.info.followers} </li>
+        <li className="list-group-item"> Following: {this.props.info.following} </li>
+        <li className="list-group-item"> Public Repos: {this.props.info.public_repos} </li>
+        {this.props.info.blog && <li className="list-group-item">Blog: <a href={this.props.info.blog}>{this.props.info.blog}</a> </li>}
     </div>
     )
   }
@@ -27,7 +28,7 @@ export default class UserDetails extends React.Component{
 }
 
 // Allows you to have prop types based on key values in an object
-UserDetails.propTypes = {
+propsDetails.propTypes = {
   score: PropTypes.number,
   info: PropTypes.shape({
     avatar_url: PropTypes.string.isRequired,
